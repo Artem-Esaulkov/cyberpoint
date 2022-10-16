@@ -1,25 +1,46 @@
+$main_font: "Squartiqa4FUltraLight", sans-serif;
+$button_font: "Squartiqa4F", sans-serif;
+$text_font: "Aeroport", sans-serif;
+$main_color: #b42a40;
+$flex_gap: 53px;
+$buttons: 324px;
+
+@mixin font_line() {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+@mixin background() {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@mixin transition() {
+  transition: opacity 0.5s ease;
+}
+
 .auth {
-  border: 32px solid #b42a40;
+  border: 32px solid $main_color;
   background-image: url(../../images/Pattern_min-02.png);
   color: #fff;
   display: flex;
   gap: 32px;
   box-sizing: border-box;
-  font-family: "Aeroport", sans-serif;
+  font-family: $text_font;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;
-}
-.auth span {
-  display: block;
-  width: 13px;
-  height: 13px;
-  background-image: url(../../images/required.svg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  position: absolute;
-  top: 22px;
-  right: -18px;
+
+  span {
+    display: block;
+    width: 13px;
+    height: 13px;
+    background-image: url(../../images/required.svg);
+    @include background();
+    position: absolute;
+    top: 22px;
+    right: -18px;
+  }
 }
 
 .auth__label {
@@ -32,8 +53,7 @@
 }
 
 .auth__title {
-  font-size: 18px;
-  line-height: 25px;
+  @include font_line();
   color: #bebebe;
   margin: 35px 0 20px;
 }
@@ -44,21 +64,20 @@
 
 .auth__inputlist {
   display: flex;
-  gap: 53px;
+  gap: $flex_gap;
   max-width: 720px;
   flex-wrap: wrap;
   margin-bottom: 17px;
 }
 
 .auth__input {
-  width: 324px;
+  width: $buttons;
   background-color: #1e1e1e;
   border: 1.67755px solid #fff;
   padding: 15px 0 16px 20px;
   box-sizing: border-box;
   color: #fff;
-  font-size: 18px;
-  line-height: 25px;
+  @include font_line();
 }
 
 .auth__input::placeholder {
@@ -74,8 +93,7 @@
   background-color: transparent;
   border: none;
   background-image: url(../../images/visible.svg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  @include background();
   cursor: pointer;
 }
 
@@ -88,12 +106,13 @@
 
 .auth__check-container {
   position: relative;
-  transition: opacity 0.5s ease;
-}
-.auth__check-container label {
-  margin-left: 22px;
-  font-size: 16px;
-  line-height: 22px;
+  @include transition();
+
+  label {
+    margin-left: 22px;
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .auth__check-container:hover {
@@ -146,16 +165,16 @@
 
 .auth__links {
   display: flex;
-  gap: 53px;
+  gap: $flex_gap;
   margin-bottom: 73px;
 }
 
 .auth__link {
   display: block;
-  width: 324px;
+  width: $buttons;
   padding: 26.5px 0;
   box-sizing: border-box;
-  font-family: "Squartiqa4F", sans-serif;
+  font-family: $button_font;
   font-size: 24px;
   line-height: 28px;
   text-align: center;
@@ -164,7 +183,7 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: opacity 0.5s ease;
+  @include transition();
 }
 
 .auth__link:hover {
@@ -173,8 +192,8 @@
 
 .auth__link_route {
   background: none;
-  border: 4px solid #b42a40;
-  color: #b42a40;
+  border: 4px solid $main_color;
+  color: $main_color;
 }
 
 .auth__adv {
@@ -193,11 +212,10 @@
 .auth__down-link {
   width: 213px;
   height: 54px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  @include background();
   background-size: cover;
   z-index: 5;
-  transition: opacity 0.5s ease;
+  @include transition();
 }
 
 .auth__down-link:hover {
@@ -214,8 +232,7 @@
 
 .auth__bg1 {
   background-image: url(../../images/download-men.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  @include background();
   background-size: cover;
   position: absolute;
   width: 150px;
@@ -227,8 +244,8 @@
 
 .auth__bg2 {
   background-image: url(../../images/witcher.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  @include background();
+  // background-size: cover;
   position: absolute;
   width: 200px;
   height: 112px;
@@ -238,10 +255,9 @@
 }
 
 .auth__invite {
-  font-family: "Aeroport", sans-serif;
+  font-family: $text_font;
   color: #fff;
-  font-size: 18px;
-  line-height: 25px;
+  @include font_line();
   margin: 0;
   margin-bottom: 7px;
 }
@@ -251,7 +267,7 @@
 }
 
 .auth__layout-title {
-  font-family: "Aeroport", sans-serif;
+  font-family: $text_font;
   font-weight: 400;
   font-size: 24px;
   line-height: 33px;
@@ -273,7 +289,7 @@
   height: 70px;
   background-color: #0e1821;
   cursor: pointer;
-  transition: opacity 0.5s ease;
+  @include transition();
 }
 
 .auth__flag:hover {
@@ -310,7 +326,7 @@
 }
 
 .auth__caption {
-  font-family: "Aeroport", sans-serif;
+  font-family: $text_font;
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
@@ -325,8 +341,8 @@
 }
 
 .auth__number {
-  font-family: "Squartiqa4FUltraLight", sans-serif;
-  color: #b42a40;
+  font-family: $main_font;
+  color: $main_color;
   font-size: 595px;
   line-height: 623px;
   text-align: right;
@@ -346,7 +362,7 @@
   padding: 18.5px 34.5px;
   box-sizing: border-box;
   background-color: #1d2731;
-  font-family: "Aeroport", sans-serif;
+  font-family: $text_font;
   font-weight: 500;
   font-size: 24px;
   line-height: 33px;
@@ -357,11 +373,9 @@
   margin: 0;
   padding: 14px 36px;
   box-sizing: border-box;
-  font-family: "Squartiqa4F", sans-serif;
-  color: #b42a40;
+  font-family: $button_font;
+  color: $main_color;
   font-size: 40px;
   line-height: 47px;
   background-color: #161d24;
 }
-
-/*# sourceMappingURL=Auth.css.map */
